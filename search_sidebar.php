@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     {
                         $title=$row->drink_name;
                         $id=$row->drink_id;
-                        // $price=$row->price;
-                        $price=1000;
+                        $price=$row->price;
+                        
                         
                         echo "
                         <div class='card col-3' style='width: 18rem;'>
