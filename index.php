@@ -291,7 +291,7 @@ select {
                 include "config.php";
                 session_start();
                     
-                if (isset($_SESSION['user_id']) && $_SESSION['admin']==1 ){
+                if (!isset($_SESSION['user_id']) && $_SESSION['admin']==1  ){
                     $sql = "select * from drink ";
                 $stm = $pdh->query($sql);
                 $rows = $stm->fetchAll(PDO::FETCH_OBJ);
