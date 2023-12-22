@@ -139,7 +139,7 @@
               <div class='col-md-2 d-flex justify-content-center'>
                 <div>
                   <p class='small text-muted mb-4 pb-2'>Quantity</p>
-                  <input min='1' value='$row->quantity' max='1' type='number'class='form-control updateQuantity_$id' />
+                  <input min='1' value='$row->quantity' max='10' type='number'class='form-control updateQuantity_$id' />
                 </div>
               </div>
               <div class='col-md-2 d-flex justify-content-center'>
@@ -183,7 +183,7 @@
                 <?php
                     // sửa lại câu select
                     $sql = "SELECT 
-                    SUM(d.price * od.quantity*2) AS total 
+                    SUM(d.price * od.quantity) AS total 
                 FROM 
                     drink d
                 JOIN 
