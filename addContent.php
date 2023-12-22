@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Di chuyển tệp tin tạm lên máy chủ
             $targetDirectory = "img_product/"; // Thư mục lưu trữ tệp tin tải lên
             $url =  basename($_FILES["inputFile"]["name"]);
-            $targetFile = basename($_FILES["inputFile"]["name"]);
+            $targetFile = $targetDirectory . basename($_FILES["inputFile"]["name"]);
           
             if (move_uploaded_file($_FILES["inputFile"]["tmp_name"], $targetFile)) {
                 echo "Tệp tin đã được tải lên thành công.";
