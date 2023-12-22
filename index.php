@@ -59,7 +59,8 @@
     cursor: pointer;
 }
 .card-img-top {
-    width: 50%;
+    width: 131.2px;
+    height: 131.2px;
 }
 select {
    
@@ -303,7 +304,7 @@ select {
                     echo "
                         <div class='card col-3' style='width: 18rem;'>
                             <form class='formCart'   >
-                                <img src='./img_product/$row->img' class='card-img-top' alt='...'>
+                                <img src='./img_product/$row->img' style='width=131.2px;height=131.2px;' class='card-img-top' alt='...'>
                                 <div class='card-body'>
                                     <h5 class='card-title'>$title</h5>
                                     <p class='card-text'>Giá bán $price $</p>
