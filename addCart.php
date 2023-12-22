@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         }
      }else {
-        //echo "Vui lòng đăng nhập!";
-        echo "Cập nhật thành công";
+        echo "Vui lòng đăng nhập!";
+       
      }
 
 } else {
