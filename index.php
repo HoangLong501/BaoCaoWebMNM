@@ -101,22 +101,22 @@ select {
             });
         }
 
-        // function addContentForm() {
-        //     // Lấy dữ liệu từ biểu mẫu
+        function addContentForm() {
+            // Lấy dữ liệu từ biểu mẫu
            
-        //     let formData = new FormData($(".addContentForm")[0]);
-        //     // Sử dụng Ajax để gửi yêu cầu đến server-side PHP
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "addContent.php", // Tên tệp xử lý PHP
-        //         data: formData,
-        //         contentType: false,
-        //         processData: false,
-        //         success: function(respone) {
-        //             alert(respone);// Hiển thị kết quả từ server
-        //         }
-        //     });
-        // }
+            let formData = new FormData($(".addContentForm")[0]);
+            // Sử dụng Ajax để gửi yêu cầu đến server-side PHP
+            $.ajax({
+                type: "POST",
+                url: "addContent.php", // Tên tệp xử lý PHP
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(respone) {
+                    alert(respone);// Hiển thị kết quả từ server
+                }
+            });
+        }
         
      
 
@@ -138,18 +138,18 @@ select {
 
                     session_start();
                     
-                    // if (isset($_SESSION['user_id']) && $_SESSION['admin']==1 ){
-                    //     include "config.php";
+                    if (isset($_SESSION['user_id']) && $_SESSION['admin']==1 ){
+                        include "config.php";
                        
 
-                    //     echo "
-                    // <div class='signin col'>
-                    // <button id='openFormButton' class='btn btn-outline-success' >Add product</button>
-                    // <a href='signout.php' class='btn btn-outline-success btnDangNhap' >Đăng xuất</a>
+                        echo "
+                    <div class='signin col'>
+                    <button id='openFormButton' class='btn btn-outline-success' >Add product</button>
+                    <a href='signout.php' class='btn btn-outline-success btnDangNhap' >Đăng xuất</a>
                     
                    
-                    // ";
-                    // }else{
+                    ";
+                    }else{
                         if (!isset($_SESSION['user_id'])) { //nếu chưa đăng nhập -> hiện nút đăng nhập
                            
                            
@@ -173,7 +173,7 @@ select {
                         </div>
                         ";
                         }
-                    // }
+                    }
                     
                     ?>
                 </div>
@@ -291,7 +291,7 @@ select {
                 include "config.php";
                 session_start();
                     
-                if (!isset($_SESSION['user_id']) && $_SESSION['admin']==1  ){
+                if (isset($_SESSION['user_id']) && $_SESSION['admin']==1  ){
                     $sql = "select * from drink ";
                 $stm = $pdh->query($sql);
                 $rows = $stm->fetchAll(PDO::FETCH_OBJ);
@@ -354,27 +354,27 @@ select {
 
 </body>
 <script>
-       // Lấy các phần tử DOM
-    // var modal = document.getElementById('myModal');
-    // var btnOpenForm = document.getElementById('openFormButton');
-    // var btnCloseForm = document.getElementById('closeFormButton');
+      // Lấy các phần tử DOM
+    var modal = document.getElementById('myModal');
+    var btnOpenForm = document.getElementById('openFormButton');
+    var btnCloseForm = document.getElementById('closeFormButton');
 
-    // // Khi nút mở form được nhấn, hiển thị form
-    // btnOpenForm.onclick = function() {
-    //     modal.style.display = 'block';
-    // };
+    // Khi nút mở form được nhấn, hiển thị form
+    btnOpenForm.onclick = function() {
+        modal.style.display = 'block';
+    };
 
-    // // Khi nút đóng form được nhấn, ẩn form
-    // btnCloseForm.onclick = function() {
-    //     modal.style.display = 'none';
-    // };
+    // Khi nút đóng form được nhấn, ẩn form
+    btnCloseForm.onclick = function() {
+        modal.style.display = 'none';
+    };
 
-    // // Khi click ra ngoài form, ẩn form
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = 'none';
-    //     }
-    // };
+    // Khi click ra ngoài form, ẩn form
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 
     function searchForm() {
             // Lấy dữ liệu từ biểu mẫu
