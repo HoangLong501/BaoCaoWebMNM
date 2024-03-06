@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    $drinkName= $_POST['drinkNameADM'];
    $manu= $_POST['selectManu'];
-
+    $cate=$_POST['selectCate'];
    $price= $_POST['drinkPriceADM'];
    $id= $_POST['drinkIDADM'];
    include "config.php";
@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($_FILES["inputFile"]["tmp_name"], $targetFile)) {
                 echo "Tệp tin đã được tải lên thành công.";
               
-                $sql="INSERT INTO `drink`(`drink_id`, `drink_name`, `price`,  `img`, `manu_id`) 
-                VALUES ('$id','$drinkName','$price','$url','$manu')";
+                $sql="INSERT INTO `drink`(`drink_id`, `drink_name`, `price`,  `img`, `manu_id`,`cat_id`) 
+                VALUES ('$id','$drinkName','$price','$url','$manu','$cate')";
                 $stm = $pdh->query($sql);
 
             } else {

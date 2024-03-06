@@ -2,39 +2,18 @@
     // Kiểm tra xem có dữ liệu được gửi từ biểu mẫu không
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Nhận dữ liệu từ biểu mẫu
-    $textSearch = $_POST["textSearch"];
-    session_start();
+    $filter = $_POST["filterID"];
+    
     include "config.php";
-    $sql1="SELECT * FROM `drink` WHERE drink_name LIKE '%$textSearch%'";
+    $sql1="SELECT * FROM `drink` WHERE cat_id='$filter'";
     $stm = $pdh->query($sql1);
     $rows = $stm->fetchAll(PDO::FETCH_OBJ);
-    
-    if (isset($_SESSION['user_id']) && $_SESSION['admin']==1  ){
-        foreach($rows as $row)
-        {
-            $title=$row->drink_name;
-            $id=$row->drink_id;
-            $price=$row->price;
-            echo "
-            <div class='card col-3' style='width: 18rem;'>
-                <form class='formCart'   >
-                    <img src='./img_product/$row->img' class='card-img-top' alt='...'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>$title</h5>
-                        <p class='card-text'>Giá bán $price $</p>
-                        <button type='button' onclick='removeProduct($id)'class='btn btn-primary btnNav' >Xóa sản phẩm</button>
-                        <button type='button' onclick='updateProduct($id)'class='btn btn-primary btnNav' >Sửa</button>
-                    </div>
-                </form>
-            </div>
-            ";  
-        }
-    }else{
-        foreach($rows as $row)
+    foreach($rows as $row)
                     {
                         $title=$row->drink_name;
                         $id=$row->drink_id;
                         $price=$row->price;
+                        
                         echo "
                         <div class='card col-3' style='width: 18rem;'>
                             <form class='formCart'   >
@@ -48,9 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         ";  
                     }
-    }
-
-    
     
     // Phản hồi về trang gửi yêu cầu Ajax
 } else {
